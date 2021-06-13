@@ -29,7 +29,7 @@ router.post("/", validateAction, (req, res, next) => {
     .catch(next);
 });
 
-router.put("/:id", validateActionId, (req, res, next) => {
+router.put("/:id", validateAction, validateActionId, (req, res, next) => {
   Action.update(req.params.id, req.body)
     .then((thisUpdated) => {
       res.status(201).json(thisUpdated);

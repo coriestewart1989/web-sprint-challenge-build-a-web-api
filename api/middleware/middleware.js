@@ -4,6 +4,7 @@ const Project = require("../projects/projects-model");
 const validateProjectId = async (req, res, next) => {
   const { id } = req.params;
   try {
+    // const { id } = req.params;
     const project = await Project.get(id);
     if (!project) {
       res.status(404).json({ message: "so this really isnt working then?" });

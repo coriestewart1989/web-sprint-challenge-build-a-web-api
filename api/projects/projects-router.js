@@ -51,10 +51,10 @@ router.delete("/:id", validateProjectId, (req, res) => {
     });
 });
 
-router.get("/:id/actions", validateProjectId, async (req, res) => {
+router.get("/:id/actions", validateProjectId, (req, res) => {
   Project.getProjectActions(req.params.id)
     .then((projectActions) => {
-      res.status(204).json(projectActions);
+      res.status(200).json(projectActions);
     })
     .catch((err) => {
       res.status(500).json({ message: err });
